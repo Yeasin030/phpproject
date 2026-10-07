@@ -6,8 +6,10 @@ if(isset($_POST['login_button'])){
     include_once 'dbconfig.php';
 
     $result = $conn->query("SELECT * FROM `udm` WHERE email = '$email' AND password = '$password'");
+     $row = $result->fetch_assoc();
     if($result->num_rows > 0){
         $_SESSION['email'] = $email;
+        $_SESSION['name'] = $row['name']; 
         header("Location: dashbord.php");
         exit;
     } else {
