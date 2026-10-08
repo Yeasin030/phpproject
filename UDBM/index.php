@@ -10,7 +10,7 @@ if(isset($_POST['login_button'])){
     if($result->num_rows > 0){
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $row['name']; 
-        header("Location: dashbord.php");
+        header("Location: dashboard.php");
         exit;
     } else {
         $login_error = "Login Failed";
